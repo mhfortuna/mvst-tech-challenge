@@ -1,0 +1,24 @@
+{
+  "name": "mvst-tech-challenge",
+  "version": "1.0.0",
+  "author": "Mathias Fortuna <https://github.com/mhfortuna>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "client": "yarn workspace client start",
+    "client-dev": "yarn workspace client start",
+    "client-build": "yarn workspace client build",
+    "client-test": "yarn workspace client test",
+    "server": "yarn workspace server start",
+    "server-dev": "yarn workspace server dev",
+    "start": "concurrently --kill-others-on-fail \"yarn client\" \"yarn server\"",
+    "dev": "concurrently --kill-others-on-fail \"yarn client-dev\" \"yarn server-dev\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "concurrently": "^6.4.0"
+  }
+}
