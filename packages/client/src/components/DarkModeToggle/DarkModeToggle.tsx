@@ -11,7 +11,7 @@ export default function DarkModeToggle({
 }) {
   return (
     <>
-      <div className="flex flex-row align-middle gap-x-2 dark:text-white">
+      <div className="flex flex-row align-middle gap-x-2 dark:text-white transition-none">
         <FaMoon size="16px" className="my-auto" />
         <input
           type="checkbox"
@@ -32,11 +32,7 @@ export default function DarkModeToggle({
           onClick={() => setIsDark(!isDark)}
         >
           <motion.span
-            className={
-              isDark
-                ? "h-5 w-5 z-10 rounded-full bg-white"
-                : "h-5 w-5 z-10 rounded-full bg-white"
-            }
+            className="h-5 w-5 z-10 rounded-full bg-white"
             layout
             transition={{
               type: "spring",
