@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "../Header";
@@ -8,7 +8,18 @@ export default function Layout({
 }: {
   children: JSX.Element | string;
 }): JSX.Element {
-  const [isDark, setIsDark] = useState(false);
+  const LOCAL_STORAGE_DARK_MODE_KEY = "DARK_MODE";
+  const initialState = JSON.parse(
+    localStorage.getItem(LOCAL_STORAGE_DARK_MODE_KEY) || "",
+  );
+
+  const [isDark, setIsDark] = useState(
+    initialState === "" ? false : initialState,
+  );
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_DARK_MODE_KEY, JSON.stringify(isDark));
+  }, [isDark]);
 
   return (
     <AnimatePresence>
@@ -21,12 +32,7 @@ export default function Layout({
           opacity: 0,
         }}
         animate={{
-          scale: 1,
           opacity: 1,
-        }}
-        exit={{
-          scale: 0.5,
-          opacity: 0,
         }}
         transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
       >
