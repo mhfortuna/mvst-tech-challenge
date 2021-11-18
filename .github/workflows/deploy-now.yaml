@@ -40,7 +40,7 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ steps.project.outputs.site-url }}
-          REACT_APP_BACKEND_API_ROUTE: https://mvst-tech-challenge-api.herokuapp.com/
+          REACT_APP_BACKEND_API_ROUTE: ${{ secrets.REACT_APP_BACKEND_API_ROUTE }}
       - name: Deploy build
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: ionos-deploy-now/deploy-to-ionos-action@v1
