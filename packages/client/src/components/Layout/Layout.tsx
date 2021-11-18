@@ -8,14 +8,14 @@ export default function Layout({
 }: {
   children: JSX.Element | string;
 }): JSX.Element {
+  // Read from localStorage
   const LOCAL_STORAGE_DARK_MODE_KEY = "DARK_MODE";
-  const initialState = JSON.parse(
-    localStorage.getItem(LOCAL_STORAGE_DARK_MODE_KEY) || "",
-  );
+  let initialState = false;
+  if (localStorage.getItem(LOCAL_STORAGE_DARK_MODE_KEY) === "true") {
+    initialState = true;
+  }
 
-  const [isDark, setIsDark] = useState(
-    initialState === "" ? false : initialState,
-  );
+  const [isDark, setIsDark] = useState(initialState);
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_DARK_MODE_KEY, JSON.stringify(isDark));
