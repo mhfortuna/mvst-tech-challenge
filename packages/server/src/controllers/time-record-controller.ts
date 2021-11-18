@@ -3,20 +3,12 @@ import { Request, Response, NextFunction } from "express";
 
 async function getTotal(req: Request, res: Response, next: NextFunction) {
   try {
-    const data = await db.TimeRecord.aggregate([
-      {
-        $group: {
-          _id: null,
-          total: { $sum: "$time" },
-          totalLogs: { $sum: 1 },
-        },
-      },
-      {
-        $project: { _id: 0 },
-      },
-    ]);
+    const data = await db.TotalTime.findOne(
+      {},
+      { time: 1, _id: 0, totalLogs: 1 },
+    );
 
-    res.status(200).send({ data: data[0] });
+    res.status(200).send({ data: data });
   } catch (error) {
     let errorMessage = "";
     if (error instanceof Error) {
@@ -38,12 +30,18 @@ async function add(req: Request, res: Response, next: NextFunction) {
         $group: {
           _id: null,
           total: { $sum: "$time" },
+          totalLogs: { $sum: 1 },
         },
       },
       {
         $project: { _id: 0 },
       },
     ]);
+
+    await db.TotalTime.updateOne(
+      {},
+      { $set: { time: data[0].total, totalLogs: data[0].totalLogs } },
+    );
 
     res
       .status(200)
