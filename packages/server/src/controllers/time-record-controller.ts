@@ -16,8 +16,6 @@ async function getTotal(req: Request, res: Response, next: NextFunction) {
       },
     ]);
 
-    console.log(data);
-
     res.status(200).send({ data: data[0] });
   } catch (error) {
     let errorMessage = "";

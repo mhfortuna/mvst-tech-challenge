@@ -1,7 +1,7 @@
 import express from "express";
+import cors from "cors";
 // const helmet = require("helmet");
 // const morgan = require ("morgan");
-// const cors = require("cors");
 import { timeRecordRouter } from "./routes";
 // const {
 //   authRouter,
@@ -17,7 +17,7 @@ app.use(express.json());
 // app.use(express.urlencoded({ limit: "10mb", extended: true }));
 // app.use(morgan("dev"));
 // app.use(helmet());
-// app.use(cors());
+app.use(cors());
 
 app.use("/api/time", timeRecordRouter);
 // app.use("/api/content", contentRouter);
