@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { IoPlayOutline, IoPauseOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
+import { IoPlayOutline, IoStopOutline } from "react-icons/io5";
 import { addTime } from "../../api/timer-api";
 import { secondsToTime } from "../../utils/time-utils";
 // import { IoPlayOutline } from "react-icons/io5";
@@ -51,17 +52,19 @@ export default function TimerButton({
   };
 
   return (
-    <button
+    <motion.button
       type="button"
       className="h-10 w-52 flex flex-row justify-center align-middle gap-x-5 bg-gray dark:bg-white text-white dark:text-gray text-sm mx-auto transition-colors duration-300"
       onClick={handleClick}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
       {isActive ? (
-        <IoPauseOutline size="18px" className="inline my-auto" />
+        <IoStopOutline size="18px" className="inline my-auto" />
       ) : (
         <IoPlayOutline size="18px" className="inline my-auto" />
       )}
       <span className="my-auto leading-none">{secondsToTime(time)}</span>
-    </button>
+    </motion.button>
   );
 }

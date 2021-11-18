@@ -13,7 +13,7 @@ export default function Header({
   return (
     <header className="flex flex-wrap place-items-center relative">
       <nav className="flex justify-between w-screen">
-        <div className="px-5 xl:px-12 py-3 lg:py-6 flex w-full items-center justify-between">
+        <div className="px-4 xl:px-11 py-6 lg:py-11 flex w-full items-center justify-between">
           <p className="text-5xl font-bold md:font-black font-roboto md:font-bitter select-none">
             MVST<span className="hidden md:inline">.</span>
           </p>

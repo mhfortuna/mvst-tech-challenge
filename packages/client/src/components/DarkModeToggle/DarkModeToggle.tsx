@@ -11,7 +11,7 @@ export default function DarkModeToggle({
 }): JSX.Element {
   return (
     <>
-      <div className="flex flex-row align-middle gap-x-2 dark:text-white transition-none">
+      <div className="flex flex-row align-middle gap-x-2 mt-0 lg:-mt-12 dark:text-white transition-none">
         <FaMoon size="16px" className="my-auto" />
         <input
           type="checkbox"

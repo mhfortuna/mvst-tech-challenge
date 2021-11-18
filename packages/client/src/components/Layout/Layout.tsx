@@ -14,7 +14,7 @@ export default function Layout({
     <AnimatePresence>
       <motion.div
         className={
-          "flex flex-col h-screen w-screen overflow-hidden transition-colors duration-300" +
+          "flex flex-col h-screen w-screen overflow-hidden transition-colors duration-300 select-none" +
           (isDark ? " dark bg-gray text-white" : " bg-white text-gray")
         }
         initial={{

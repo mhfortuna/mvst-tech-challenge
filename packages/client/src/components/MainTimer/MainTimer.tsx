@@ -24,7 +24,7 @@ export default function MainTimer(): JSX.Element {
   }, []);
   return (
     <div className="flex flex-col gap-y-8 mx-auto">
-      <p className="text-6xl">{secondsToTime(totalTime.time)}</p>
+      <p className="text-6xl text-center">{secondsToTime(totalTime.time)}</p>
       <div className="">
         <TimerButton setTotalTime={setTotalTime} />
       </div>
