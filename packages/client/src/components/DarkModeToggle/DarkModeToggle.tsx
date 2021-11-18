@@ -9,6 +9,9 @@ export default function DarkModeToggle({
   isDark: boolean;
   setIsDark: (isDark: boolean) => void;
 }): JSX.Element {
+  const handleDarkModeToggle = (): void => {
+    setIsDark(!isDark);
+  };
   return (
     <>
       <div className="flex flex-row align-middle gap-x-2 mt-0 lg:-mt-12 dark:text-white transition-none">
@@ -29,7 +32,7 @@ export default function DarkModeToggle({
             (isDark ? " justify-start" : " justify-end")
           }
           htmlFor="toggle"
-          onClick={() => setIsDark(!isDark)}
+          onClick={handleDarkModeToggle}
         >
           <motion.span
             className="h-5 w-5 z-10 rounded-full bg-white"

@@ -12,7 +12,3 @@ export const config = {
     url: MONGO_DB_URL || "",
   },
 };
-
-// module.exports = {
-//   config,
-// };

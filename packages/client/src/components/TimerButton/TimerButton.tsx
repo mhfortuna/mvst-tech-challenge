@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 import { IoPlayOutline, IoStopOutline } from "react-icons/io5";
 import { addTime } from "../../api/timer-api";
 import { secondsToTime } from "../../utils/time-utils";
-// import { IoPlayOutline } from "react-icons/io5";
 
 export default function TimerButton({
   setTotalTime,
@@ -24,7 +24,15 @@ export default function TimerButton({
         await addTime(time);
       setTotalTime({ loaded: true, time: Number(data.total) });
     } catch (error) {
-      console.log(error);
+      let errorMessage = "";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else {
+        errorMessage = String(error);
+      }
+      toast(errorMessage, {
+        type: "error",
+      });
     }
   };
 
@@ -43,11 +51,9 @@ export default function TimerButton({
 
   const handleClick = () => {
     if (isActive) {
-      console.log(`Registered time is ${time} seconds`);
       postTime();
       setTime(0);
     }
-
     setIsActive(!isActive);
   };
 

@@ -14,5 +14,3 @@ const timeRecordSchema = new Schema(
 );
 
 export const TimeRecord = mongoose.model("timeRecord", timeRecordSchema);
-
-// module.exports = Category;

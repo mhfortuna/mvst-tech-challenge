@@ -1,7 +1,5 @@
 import React from "react";
 import DarkModeToggle from "../DarkModeToggle";
-// import { Link } from "react-router-dom";
-// import { APP } from "../../constants/routes";
 
 export default function Header({
   isDark,
