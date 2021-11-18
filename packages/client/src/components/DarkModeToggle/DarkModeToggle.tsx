@@ -8,7 +8,7 @@ export default function DarkModeToggle({
 }: {
   isDark: boolean;
   setIsDark: (isDark: boolean) => void;
-}) {
+}): JSX.Element {
   return (
     <>
       <div className="flex flex-row align-middle gap-x-2 dark:text-white transition-none">

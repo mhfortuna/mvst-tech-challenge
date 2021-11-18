@@ -7,7 +7,7 @@ export default function Layout({
   children,
 }: {
   children: JSX.Element | string;
-}) {
+}): JSX.Element {
   const [isDark, setIsDark] = useState(false);
 
   return (

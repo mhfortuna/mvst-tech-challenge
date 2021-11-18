@@ -9,7 +9,7 @@ export default function Header({
 }: {
   isDark: boolean;
   setIsDark: (isDark: boolean) => void;
-}) {
+}): JSX.Element {
   return (
     <header className="flex flex-wrap place-items-center relative">
       <nav className="flex justify-between w-screen">

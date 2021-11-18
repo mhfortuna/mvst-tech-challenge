@@ -13,7 +13,7 @@ export default function TimerButton({
       time: number;
     }>
   >;
-}) {
+}): JSX.Element {
   const [isActive, setIsActive] = useState(false);
   const [time, setTime] = useState(0); // time is in seconds
 
