@@ -2,6 +2,7 @@ import express from "express";
 // const helmet = require("helmet");
 // const morgan = require ("morgan");
 // const cors = require("cors");
+import { timeRecordRouter } from "./routes";
 // const {
 //   authRouter,
 //   contentRouter,
@@ -18,7 +19,7 @@ app.use(express.json());
 // app.use(helmet());
 // app.use(cors());
 
-// app.use("/api/auth", authRouter);
+app.use("/api/time", timeRecordRouter);
 // app.use("/api/content", contentRouter);
 // app.use("/api/category", categoryRouter);
 // app.use("/api/search", searchRouter);
