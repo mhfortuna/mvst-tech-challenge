@@ -4,6 +4,10 @@ on:
   - push
   - workflow_dispatch
 
+defaults:
+  run:
+    working-directory: packages/client
+
 jobs:
   deploy-now:
     runs-on: ubuntu-latest
@@ -19,7 +23,7 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: actions/checkout@v2
         with:
-          submodules: 'recursive'
+          submodules: "recursive"
       - name: Setup Node.js 14.x
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         uses: actions/setup-node@v1
