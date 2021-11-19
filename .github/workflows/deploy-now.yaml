@@ -33,7 +33,6 @@ jobs:
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         run: |
           yarn install --frozen-lockfile
-        working-directory: packages/client
       - name: Build project
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
         run: yarn build
