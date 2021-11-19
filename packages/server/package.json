@@ -4,7 +4,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "prestart": "yarn build",
+    "prestart": "tsc",
     "start": "node ./dist",
     "dev": "nodemon --config nodemon.json src/index.ts"
   },
