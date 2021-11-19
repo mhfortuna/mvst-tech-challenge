@@ -2,7 +2,7 @@ import dotenv = require("dotenv");
 
 dotenv.config();
 
-const { PORT, MONGO_DB_URL } = process.env;
+const { PORT, MONGO_DB_URL, CLIENT_URL } = process.env;
 
 export const config = {
   app: {
@@ -10,5 +10,8 @@ export const config = {
   },
   db: {
     url: MONGO_DB_URL || "",
+  },
+  client: {
+    url: CLIENT_URL || "http://localhost:3000",
   },
 };
