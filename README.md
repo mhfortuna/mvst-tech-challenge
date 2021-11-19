@@ -21,6 +21,7 @@ There is also a switch to toggle between light and dark mode.
   - [Installation 🔧](#installation-)
 - [🦴 Project Structure](#-project-structure)
   - [Folder structure 🗂](#folder-structure-)
+- [Testing](#testing)
 - [Decisions made](#decisions-made)
 - [✨ Wishlist](#-wishlist)
 - [Exercise feedback](#exercise-feedback)
@@ -31,6 +32,7 @@ There is also a switch to toggle between light and dark mode.
 # 🚀 Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+This repo is a monorepo configured with [Yarn Workspaces](https://yarnpkg.com/features/workspaces). Both the frontend and backend of the app are in this repo.
 
 ## Requirements 📋
 
@@ -46,7 +48,7 @@ First, you will need to `clone` or `fork` the repository into your Github accoun
 
 `$ git clone https://github.com/mhfortuna/mvst-tech-challenge`
 
-Then run yarn install in the base folder `yarn install`
+Then run `yarn install` in the root folder.
 
 When you have all the dependencies installed you need to create two `.env` files located one in `packages/client` and the other in `packages/server` :
 `packages/server/.env`
@@ -92,6 +94,12 @@ CLIENT_URL=<Route of the client for CORS policies>
 
 </pre>
 
+# Testing
+To run test  run:
+```
+$	yarn client-test
+```
+The only testing is made for the frontend. There are two small tests to verify the page renders correctly and that the dark mode toggle is working
 
 
 # Decisions made

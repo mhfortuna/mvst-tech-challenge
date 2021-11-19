@@ -23,7 +23,6 @@ export default function DarkModeToggle({
           checked={isDark}
           onChange={() => {
             setIsDark(!isDark);
-            console.log("changed!");
           }}
         />
         <label
@@ -33,6 +32,7 @@ export default function DarkModeToggle({
           }
           htmlFor="toggle"
           onClick={handleDarkModeToggle}
+          data-testid="dark-mode-toggle"
         >
           <motion.span
             className="h-5 w-5 z-10 rounded-full bg-white"
