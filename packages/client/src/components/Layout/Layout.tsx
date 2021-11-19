@@ -35,6 +35,7 @@ export default function Layout({
           opacity: 1,
         }}
         transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+        data-testid="layout-div"
       >
         <Header isDark={isDark} setIsDark={setIsDark} />
         <main className="h-full w-full relative my-4">{children}</main>

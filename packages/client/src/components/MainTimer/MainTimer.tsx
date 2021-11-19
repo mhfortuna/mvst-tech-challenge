@@ -33,7 +33,7 @@ export default function MainTimer(): JSX.Element {
   }, []);
   return (
     <div className="flex flex-col gap-y-8 mx-auto">
-      <div className="text-6xl text-center">
+      <div className="text-6xl text-center" data-testid="main-timer">
         {totalTime.loaded ? (
           secondsToTime(totalTime.time)
         ) : (
