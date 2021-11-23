@@ -14,6 +14,8 @@ There is also a switch to toggle between light and dark mode.
 - Page animation on load
 - Toast notifications from API errors
 
+# Index
+
 - [MVST Timer](#mvst-timer)
     - [Features](#features)
 - [🚀 Getting Started](#-getting-started)
