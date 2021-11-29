@@ -1,0 +1,58 @@
+version: "3"
+services:
+
+  client:
+    build: 
+      context: ./packages/client
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - mern-network
+    volumes:
+      - ./client/src:/usr/app/src
+      - ./client/public:/usr/app/public
+    depends_on:
+      - server
+    environment:
+      - REACT_APP_BACKEND_API_ROUTE=http://localhost:4000/api
+      - CHOKIDAR_USEPOLLING=true
+      - SKIP_PREFLIGHT_CHECK=true
+    command: yarn start
+    stdin_open: true
+    tty: true
+  
+  server:
+    build:
+      context: ./packages/server
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    networks:
+      - mern-network
+    volumes:
+      - ./server/src:/usr/app/src
+    depends_on:
+      - db
+    environment:
+      - MONGO_DB_URL=mongodb://db:27017/timer
+      - CLIENT_URL=http://localhost:3000
+      - PORT=4000
+    command: yarn start
+
+  db:
+    image: mongo:4.0.27-xenial
+    ports:
+      - 27017:27017
+    networks:
+      - mern-network
+    volumes:
+      - ./dbs/mongo-data:/data/db
+
+networks:
+  mern-network:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
